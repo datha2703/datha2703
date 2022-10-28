@@ -15,6 +15,9 @@
       - Command + Shift + 4 → to take screenshot and save as file.
       - Command + Shift + Control + 4 → to take screenshot and copy captured image into clipboard.
       - Use + 3 to capture full screen . 
+   - Move folder
+      - Command + C
+      - Command + Option + V
 
 
 <!---
