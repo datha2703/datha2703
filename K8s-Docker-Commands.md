@@ -118,3 +118,9 @@ kubectl scale deployments -f .\DI.AppCenter.LogProcessor.Api.Deploy.yml --replic
 1. k get deployments --show-labels
 1. k scale -f DI.AppCenter.LogProcessor.Api.Deploy.yml --replicas=2
 1. k delete -f DI.AppCenter.LogProcessor.Api.Deploy.yml
+   
+# Helm Charts
+1. helm lint ./mycharts/ --> where `mycharts` is location of my charts directory. Checks for lint errors and syntax.
+1. helm install --dry-run --debug ./mycharts/ --generate-name --> this is dry run of the charts.shows how `deployment.yml` will be rendered.
+1. helm install example ./mycharts/ --> deploes application to k8s cluster.
+1. helm list --> Show list of installed helm charts.
