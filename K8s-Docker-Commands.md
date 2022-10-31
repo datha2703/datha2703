@@ -1,12 +1,12 @@
-[[_TOC_]]
+
 
 # Prerequisites
 1. Docker Desktop
 1. Install Nginx `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.41.2/deploy/static/provider/cloud/deploy.yaml`.
     * This one did not work for me, but suppose to be latest `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.0/deploy/static/provider/cloud/deploy.yaml` 
 1. Pull these two images.
-   * `docker pull itronicsp.azurecr.io/aspnet-runtime:3.1.6`
-   * `docker pull itronicsp.azurecr.io/dotnet-build:3.1.6` 
+   * `docker pull containerregistry.azurecr.io/aspnet-runtime:3.1.6`
+   * `docker pull containerregistry.azurecr.io/dotnet-build:3.1.6` 
 
 # AZ Commands
 1. Login to AKS cluster
@@ -15,7 +15,7 @@
    1. az aks get-credentials --resource-group rgp-usw-ide-test2-aks-canoes --name aks-usw-ide-test2-aks-canoes
 1. Login to ACR
    1. az login
-   1. az acr login --name itronicsp
+   1. az acr login --name <container registry>
 
 # Docker Commands (Draft)
 1. Set-Alias -Name d -Value docker
@@ -24,17 +24,17 @@
     1. Add below section to `Nuget.Config`
     ```
     <packageSourceCredentials>
-      <Itron.Cloud.Platform>
-        <add key="Username" value="dkrishna" />
+      <Cloud.Platform>
+        <add key="Username" value="<user name>" />
         <add key="ClearTextPassword" value="..." />
-      </Itron.Cloud.Platform>
+      </Cloud.Platform>
     </packageSourceCredentials>
     ```
 1. 'docker build' command by Visual Studio. VS runs this command as part of build task.
-   1. `docker build -f "C:\Code\DI-Services\DI.Cloud.Services\DI.AppCenter.LogProcessor\source\Itron.Cloud.DI.AppCenter.LogProcessor\Dockerfile" --force-rm -t itronclouddiappcenterlogprocessor:dev --target base  --label "com.microsoft.created-by=visual-studio" --label "com.microsoft.visual-studio.project-name=Itron.Cloud.DI.AppCenter.LogProcessor" "C:\Code\DI-Services\DI.Cloud.Services\DI.AppCenter.LogProcessor"` - This was the command Visual Studio showed in `Container Tools` window.
+   1. `docker build -f "Dockerfile" --force-rm -t helloworld:dev --target base  --label "com.microsoft.created-by=visual-studio" --label "com.microsoft.visual-studio.project-name=helloworld" "DI.AppCenter.LogProcessor"` - This was the command Visual Studio showed in `Container Tools` window.
    1. `docker build . -t di.appcenter.logprocessor.api:1.0` --> Here Dockerfile is present in current directory, create build with repository as `di.appcenter.logprocessor.api` and label as `1.0`.
    1. `docker build . -f source\DI.AppCenter.LogProcessor.Api\Dockerfile -t di.appcenter.logprocessor.api:1` - Make sure you build from place where Nuget config is placed.
-1. docker pull itronicsp.azurecr.io/dotnet-build:3.1.2
+1. docker pull azurecr.io/dotnet-build:3.1.2
 1. docker images --> List container images
 1. docker image rm dc349298ea5a --> delete image by id
 1. docker image rm webapplication1:dev --> delete image by referencing REPOSITORY and TAG.
