@@ -1,0 +1,18 @@
+- Set env variable by editing file `.bash-profile` or `.zprofile` and execute `source ~/.bash-profile` or `source ~/.zprofile`
+- Move to bin by Command + delete
+- View hidden files by Command + Shift + Dot
+- Exit window by Command + Q
+- Search history in terminal by Ctrl + r
+- Delete under the cursor by Function + Delete
+- Screen shot
+  - Command + Shift + 4 → to take screenshot and save as file.
+  - Command + Shift + Control + 4 → to take screenshot and copy captured image into clipboard.
+  - Use + 3 to capture full screen . 
+- Move folder
+  - Command + C
+  - Command + Option + V
+- Cursor movements
+  - Command + Left → Moves to start of line.
+  - Option + Left → Moves to start of word.
+  - Command + Right → Moves to start of line.
+  - Option + Right → Moves to start of word.
