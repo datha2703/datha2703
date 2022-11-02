@@ -16,8 +16,9 @@
   - Option + Left → Moves to start of word.
   - Command + Right → Moves to start of line.
   - Option + Right → Moves to start of word.
+  - Fn + Up or Fn + Down → Moves page up or down
 - Excel Shortcuts
  - Option + Enter → How to start a new line in Excel cell
 - Finder Options
  - Select File and Press `Enter` to enter rename mode.
- - Command + O to open file from finder.
+ - Command + O to open file from finder. 
