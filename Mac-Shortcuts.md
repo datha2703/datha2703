@@ -18,4 +18,6 @@
   - Option + Right → Moves to start of word.
 - Excel Shortcuts
  - Option + Enter → How to start a new line in Excel cell
- - 
+- Finder Options
+ - Select File and Press `Enter` to enter rename mode.
+ - Command + O to open file from finder.
