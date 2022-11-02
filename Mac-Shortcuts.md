@@ -16,3 +16,6 @@
   - Option + Left → Moves to start of word.
   - Command + Right → Moves to start of line.
   - Option + Right → Moves to start of word.
+- Excel Shortcuts
+ - Option + Enter → How to start a new line in Excel cell
+ - 
