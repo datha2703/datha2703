@@ -46,6 +46,7 @@
    1. docker run -i -t alpine:3.12 sh
    1. docker run -i -t alpine:3.12 ping google.com
    1. docker run -idt -p 16000:16000 --name fb ubuntu bash
+   1. docker run --publish  8090:8090 alpine:3.12 --> Port forwarding from host to container
    1. docker run -v /HostPath:/ContainerPath  -it alpine:3.12  sh  --> Run and mount host directory path `/HostPath` as `/ContainerPath`. Any changes made in host directory is available to container directory when container is running.
 
 # Kubenates Services
