@@ -22,3 +22,6 @@
 - Finder Options
  - Select File and Press `Enter` to enter rename mode.
  - Command + O to open file from finder. 
+- VS Code
+ - Control and - → navigate back
+ - Control , Shift and - → navigate forward
