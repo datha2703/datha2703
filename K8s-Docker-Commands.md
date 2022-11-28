@@ -3,10 +3,10 @@
 # Prerequisites
 1. Docker Desktop
 1. Install Nginx `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.41.2/deploy/static/provider/cloud/deploy.yaml`.
-    * This one did not work for me, but suppose to be latest `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.0/deploy/static/provider/cloud/deploy.yaml` 
+    * This one did not work for me, but suppose to be latest `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.0/deploy/static/provider/cloud/deploy.yaml`
 1. Pull these two images.
    * `docker pull containerregistry.azurecr.io/aspnet-runtime:3.1.6`
-   * `docker pull containerregistry.azurecr.io/dotnet-build:3.1.6` 
+   * `docker pull containerregistry.azurecr.io/dotnet-build:3.1.6`
 
 # AZ Commands
 1. Login to AKS cluster
@@ -34,6 +34,7 @@
    1. `docker build -f "Dockerfile" --force-rm -t helloworld:dev --target base  --label "com.microsoft.created-by=visual-studio" --label "com.microsoft.visual-studio.project-name=helloworld" "DI.AppCenter.LogProcessor"` - This was the command Visual Studio showed in `Container Tools` window.
    1. `docker build . -t di.appcenter.logprocessor.api:1.0` --> Here Dockerfile is present in current directory, create build with repository as `di.appcenter.logprocessor.api` and label as `1.0`.
    1. `docker build . -f source\DI.AppCenter.LogProcessor.Api\Dockerfile -t di.appcenter.logprocessor.api:1` - Make sure you build from place where Nuget config is placed.
+   1. `docker build --tag prms .` - Build docker image with tag called prms
 1. docker pull azurecr.io/dotnet-build:3.1.2
 1. docker images --> List container images
 1. docker image rm dc349298ea5a --> delete image by id
@@ -41,7 +42,11 @@
 1. docker container ls --> List containers
 1. docker image history <repository>:<tag>
 1. docker system events
+1. Docker push
+   1. docker login docker-master.cdaas.oraclecloud.com
+   1. docker push myimage:latest
 1. docker run
+   1. docker run docker run -e my_env_var="my_env_var_value" alpine:3.12
    1. docker run -i -t <REPOSITORY>:<TAG> sh
    1. docker run -i -t alpine:3.12 sh
    1. docker run -i -t alpine:3.12 ping google.com
@@ -120,7 +125,7 @@ kubectl scale deployments -f .\DI.AppCenter.LogProcessor.Api.Deploy.yml --replic
 1. k get deployments --show-labels
 1. k scale -f DI.AppCenter.LogProcessor.Api.Deploy.yml --replicas=2
 1. k delete -f DI.AppCenter.LogProcessor.Api.Deploy.yml
-   
+
 # Helm Charts
 1. helm lint ./mycharts/ --> where `mycharts` is location of my charts directory. Checks for lint errors and syntax.
 1. helm install --dry-run --debug ./mycharts/ --generate-name --> this is dry run of the charts.shows how `deployment.yml` will be rendered.
