@@ -42,14 +42,14 @@
 1. k exec di-appcenter-logprocessor-api -it sh --> To get bash shell
 1. kubectl logs [container-name]
 
-# kubectl pods (Draft)
+# kubectl pods
+1. kubectl get pods -->List all pods
 1. k describe pod di-appcenter-logprocessor-api
 1. kubectl run di-appcenter-logprocessor-api --image=repo:label  --> this will create pod called 'di-appcenter-logprocessor-api' using container image 'repo:label'
 1. kubectl port-forward di-appcenter-logprocessor-api 8090:80 --> where 8090 is external port and 80 is internal port. http://localhost:8090/WeatherForecast
 1. kubectl delete pod di-appcenter-logprocessor-api
 1. Pods have their own IP address
 1. kubectl port-forward [pod] [ports]
-1. kubectl get pods -->List all pods
 1. kubectl port-forward pods\di-appcenter-logprocessor-api 8090:80 --> where 8090 is external port and 80 is internal port. http://localhost:8090/WeatherForecast
 1. kubectl port-forward pod/di-appcenter-logprocessor-api-6fb5594f8b-5x442 8090:80 --> Magic number at the end of the pod name comes when replicas are setup.
 1. kubectl create -f .\DI.AppCenter.LogProcessor.Api.Pod.yml --dry-run=client --validate=true  --> Only validates and dry run
@@ -86,5 +86,5 @@ kubectl scale deployments -f .\DI.AppCenter.LogProcessor.Api.Deploy.yml --replic
 # Helm Charts
 1. helm lint ./mycharts/ --> where `mycharts` is location of my charts directory. Checks for lint errors and syntax.
 1. helm install --dry-run --debug ./mycharts/ --generate-name --> this is dry run of the charts.shows how `deployment.yml` will be rendered.
-1. helm install example ./mycharts/ --> deploes application to k8s cluster.
+1. helm install example ./mycharts/ --> deploys application to k8s cluster.
 1. helm list --> Show list of installed helm charts.
