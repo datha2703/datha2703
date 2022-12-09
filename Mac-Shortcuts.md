@@ -1,5 +1,7 @@
 - Set env variable by editing file `.bash-profile` or `.zprofile` and execute `source ~/.bash-profile` or `source ~/.zprofile`
-- Move to bin by Command + delete
+- Deleting file
+  - Move to bin by Command + delete
+  - Move permanently Option + Command + delete
 - View hidden files by Command + Shift + Dot
 - Exit window by Command + Q
 - Search history in terminal by Ctrl + r
@@ -30,6 +32,7 @@
  - Command + O to open file from finder.
 
 - VS Code
+ - Shift + Option to select block of text.
  - Control and - → navigate back
  - Control , Shift and - → navigate forward
  - Opening folder in two windows
@@ -37,9 +40,12 @@
   - Dupl
   - Workspaces: Duplicate As Workspace in New Window
  - Case manipulation
-  - Cmd+K, then Cmd+U to change the test to upper Case  (modified short cut)
-  - OCmd+K, then Cmd+L to change the test to lower Case  (modified short cut)
+  - Option + U to change the test to upper Case  (modified short cut)
+  - Cmd+K, then Cmd+L to change the test to lower Case  (modified short cut)
 
+
+- Force Quit / Kill
+  - Option + Command + Escape and choose application to kill.
 
 - Atom
  - Changing the case by Cmd+K, then Cmd+U

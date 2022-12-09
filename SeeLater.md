@@ -1,0 +1,2 @@
+* https://jira.oraclecorp.com/jira/browse/SPS-2850 Please refer to following video about how to setup local testing: https://otube.oracle.com/media/APM+%2BSAS+Integration+Local+simulation/1_8fi1y0zd
+* Preflight access https://confluence.oraclecorp.com/confluence/display/FRE/OCI+GEN1+Preflight+and+FA+POD+Submission+and+Monitoring#OCIGEN1PreflightandFAPODSubmissionandMonitoring-RequestPreflightSubmissionAccess
