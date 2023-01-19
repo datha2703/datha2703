@@ -6,11 +6,13 @@
 - Exit window by Command + Q
 - Search history in terminal by Ctrl + r
 - Delete under the cursor by Function + Delete
+- Selecting square block of text by, hold shift and option, and select.
 
 - Screen shot
   - Command + Shift + 4 → to take screenshot and save as file.
   - Command + Shift + Control + 4 → to take screenshot and copy captured image into clipboard.
   - Use + 3 to capture full screen .
+  - Open 'Preview' application, create new image and Command+v to paste image from clipboard.
 
 - Copy + V
   - Move folder/file
@@ -49,3 +51,4 @@
 
 - Atom
  - Changing the case by Cmd+K, then Cmd+U
+ - when window is not visible,Open 'Window' menu -> "Tile Window to the left of the screen" and click on another file and select "Tile Window to the right of the screen". https://apple.stackexchange.com/questions/414978/atom-app-on-mac-does-not-show-open-windows

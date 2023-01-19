@@ -35,15 +35,20 @@
 1. kubectl version
 1. kubectl cluster-info
 1. kubectl get all
+1. kubectl get all  -l app.kubernetes.io/instance=authz-management
 1. kubectl get services
 1. kubectl run [container-name] --image=[image-name]
 1. kubectl expose ...
 1. kubectl create -f create-namespace.yml
 1. k exec di-appcenter-logprocessor-api -it sh --> To get bash shell
+1. kubectl -c management exec --stdin --tty authz-management-5984849cf5-2rnt4 -- sh --> Gets shell of pod called `authz-management-5984849cf5-2rnt4`.
+1. `kubectl -c management exec --stdin --tty authz-management-84b7fb6456-vgjjv -- printenv` - print all environment vars for specified pod
 1. kubectl logs [container-name]
+1. kubectl logs [pod-name] -c [container-name]
 
 # kubectl pods
 1. kubectl get pods -->List all pods
+1. kubectl get pods  -l app.kubernetes.io/instance=authz-management
 1. k describe pod di-appcenter-logprocessor-api
 1. kubectl run di-appcenter-logprocessor-api --image=repo:label  --> this will create pod called 'di-appcenter-logprocessor-api' using container image 'repo:label'
 1. kubectl port-forward di-appcenter-logprocessor-api 8090:80 --> where 8090 is external port and 80 is internal port. http://localhost:8090/WeatherForecast
@@ -56,14 +61,20 @@
 1. kubectl apply -f .\DI.AppCenter.LogProcessor.Api.Pod.yml --> Creates pod
 1. kubectl apply -f .\DI.AppCenter.LogProcessor.Api.Pod.yml --save-config --> Creates annotation, applies specific delta changes in yml
 1. kubectl delete -f .\DI.AppCenter.LogProcessor.Api.Pod.yml
+1. List container images
+```
+kubectl get pods -o jsonpath="{.items[*].spec.containers[*].image}" |\
+tr -s '[[:space:]]' '\n'
+
+```
 
 # kubectl deployments
 1. kubectl create -f .\DI.AppCenter.LogProcessor.Api.Deploy.yml  --dry-run=client --validate=true  --> Only validates and dry run
 1. kubectl get deployments
 1. kubectl get deployments --show-labels
 1. kubectl get deployments -l app=di-appcenter-logprocessor-api-app
-1. kubectl scale deployments di-appcenter-logprocessor-api --replicas=2
-kubectl scale deployments -f .\DI.AppCenter.LogProcessor.Api.Deploy.yml --replicas=2
+1. kubectl scale deployments authz-decision --replicas=1
+1. kubectl scale deployments -f .\DI.AppCenter.LogProcessor.Api.Deploy.yml --replicas=2
 1. kubectl scale deployments -f  --replicas=2
 1. k describe deployment di-appcenter-logprocessor-api
 1. kubectl port-forward deployment/di-appcenter-logprocessor-api 8090:80
@@ -79,8 +90,8 @@ kubectl scale deployments -f .\DI.AppCenter.LogProcessor.Api.Deploy.yml --replic
 1. policyservicedev (root)/spectra/spectra-authorization_authz_gamma context-cxoohkpuvva
 1. policyservicedev (root)/spectra/sps_alpha context-csyksvfyjva
 1. kubectl get ns
-1. kubectl describe namespace datha
-1. kubectl config set-context --current --namespace=datha
+1. kubectl describe namespace dathav1
+1. kubectl config set-context --current --namespace=dathav1
 1. kubectl delete ns datha
 
 # Helm Charts
@@ -88,3 +99,13 @@ kubectl scale deployments -f .\DI.AppCenter.LogProcessor.Api.Deploy.yml --replic
 1. helm install --dry-run --debug ./mycharts/ --generate-name --> this is dry run of the charts.shows how `deployment.yml` will be rendered.
 1. helm install example ./mycharts/ --> deploys application to k8s cluster.
 1. helm list --> Show list of installed helm charts.
+
+# Spectra cli
+1. spectra-cli instance delete --instance-name datha1 --stage-name alpha --service-name authz --org-name spectra-authorization --region us-phoenix-1
+1. spectra-cli instance create --filename=/Users/sahithi/Desktop/rc-integration-main-instance.yaml
+1. spectra-cli stage create --filename out/gamma.yaml --verbosity-level 100  --> used in oke and spectra cli image upgrade.
+
+# OCI Commands
+1. Connect to Alpha `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaaafaoeblla2eegicngiwofeqwzof4v7hazzngorr2bclxtwe5tvwq --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0`
+1. Connect to Beta `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaal7jqrhnjuold72i5j662gmeketyragk4us7aqqjbqcsazdsjrzia --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0 `
+1. Connect to Gamma `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaal7naqd4lkyjxfjjfotx5ij5qbjkrrvkmk6t3ro34gcxoohkpuvva --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0`
