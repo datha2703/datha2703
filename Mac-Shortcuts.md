@@ -14,6 +14,10 @@
   - Use + 3 to capture full screen .
   - Open 'Preview' application, create new image and Command+v to paste image from clipboard.
 
+- Comment and uncomment
+  - Command + K + C
+  - Command + K + U
+
 - Copy + V
   - Move folder/file
     - Command + C

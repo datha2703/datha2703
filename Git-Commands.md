@@ -1,3 +1,7 @@
+1. Check out new branch and publish branch
+git checkout -b <branch>
+git push -u origin <branch>
+
 1. Pushing empty commit to trigger build
 git commit --allow-empty -m "Empty-Commit"
 git push origin

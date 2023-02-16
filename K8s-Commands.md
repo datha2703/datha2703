@@ -106,6 +106,7 @@ tr -s '[[:space:]]' '\n'
 1. spectra-cli stage create --filename out/gamma.yaml --verbosity-level 100  --> used in oke and spectra cli image upgrade.
 
 # OCI Commands
-1. Connect to Alpha `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaaafaoeblla2eegicngiwofeqwzof4v7hazzngorr2bclxtwe5tvwq --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0`
-1. Connect to Beta `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaal7jqrhnjuold72i5j662gmeketyragk4us7aqqjbqcsazdsjrzia --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0 `
-1. Connect to Gamma `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaal7naqd4lkyjxfjjfotx5ij5qbjkrrvkmk6t3ro34gcxoohkpuvva --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0`
+1. Connect to Alpha, Set 'policyservicedev' as default in '/Users/datkrish/.oci/config' `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaaafaoeblla2eegicngiwofeqwzof4v7hazzngorr2bclxtwe5tvwq --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0`
+1. Connect to Beta, Set 'policyservicedev' as default in '/Users/datkrish/.oci/config' `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaal7jqrhnjuold72i5j662gmeketyragk4us7aqqjbqcsazdsjrzia --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0 `
+1. Connect to Gamma, Set 'policyservicedev' as default in '/Users/datkrish/.oci/config' `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaal7naqd4lkyjxfjjfotx5ij5qbjkrrvkmk6t3ro34gcxoohkpuvva --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0`
+1. Connect to Prod, set prod section as default in '/Users/datkrish/.oci/config' `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaafwk6zagqp4qjpn4gfhrpzqmnxuiwgb3hhtj63acrkcf2wmksocpq --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0`
