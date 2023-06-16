@@ -46,13 +46,25 @@
   - Dupl
   - Workspaces: Duplicate As Workspace in New Window
  - Case manipulation
-  - Option + U to change the test to upper Case  (modified short cut)
+  - Control + Shift + u to change the test to upper Case  (modified short cut)
   - Cmd+K, then Cmd+L to change the test to lower Case  (modified short cut)
 
 
 - Force Quit / Kill
   - Option + Command + Escape and choose application to kill.
 
-- Atom
- - Changing the case by Cmd+K, then Cmd+U
- - when window is not visible,Open 'Window' menu -> "Tile Window to the left of the screen" and click on another file and select "Tile Window to the right of the screen". https://apple.stackexchange.com/questions/414978/atom-app-on-mac-does-not-show-open-windows
+- Base64
+  - `printf "MY_OAUTH_APPID:f59cd996-32a7-479e-b520-13b34cd32b4b" | base64` --> Base 64 encoding.
+  -  `printf "TVlfT0FVVEhfQVBQSUQ6ZjU5Y2Q5OTYtMzJhNy00NzllLWI1MjAtMTNiMzRjZDMyYjRi" | base64 --decode` --> Base64 decode
+
+- Preflight Tests
+  - scp aime@phxfafac73.ad2.fusionappsdphx1.oraclevcn.com:/ade_autofs/gd524_fa/FAAT_PT.V2MIB_GENERIC.rdd/230302.1500/faat/fusionapps/order_props/auto_gsi_fa_spectra_starter_setup_svf.prop .
+    - User/Pass aime/2cool
+  - /scratch/aime1/adestore/views/aime1_phxfafaf41/oracle/work/RunFaBATS
+  - grep -nr 'yourString*' .
+
+- Sublime text
+  - Open package control by command shift p.
+  - SQL beautifier by "command+k", "command+f"
+
+

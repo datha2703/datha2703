@@ -14,8 +14,8 @@ func main() { fmt.Println("Hello world") }
 ## Build and Execute
 1. go build .\main.go .\deck.go --> Build
 1. .\main.exe --> Execute
-1. go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.47.3`. `go build` just compiles the executable file and moves it to the destination. go install does a little bit more. It moves the executable file to $GOPATH/bin
-In my laptop, it built and copied build artifact to /Users/datkrish/go
+1. `go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.47.3`. `go build` just compiles the executable file and moves it to the destination. go install does a little bit more. It moves the executable file to $GOPATH/bin
+In my laptop, it built and copied build artifact to /Users/datkrish/go.
 
 # Basic Language Constructs
 
