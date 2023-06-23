@@ -84,7 +84,7 @@ tr -s '[[:space:]]' '\n'
 1. k delete -f DI.AppCenter.LogProcessor.Api.Deploy.yml
 
 # kubectl namespace
-1. Switch context `kubectl config use-context context-clxtwe5tvwq`
+1. Switch context `kubectl config use-context context-clxtwe5tvwq` or `kubectl config use-context rancher-desktop`
 1. policyservicedev (root)/spectra/spectra-authorization_authz_alpha context-clxtwe5tvwq
 1. policyservicedev (root)/spectra/spectra-authorization_authz_beta context-csazdsjrzia
 1. policyservicedev (root)/spectra/spectra-authorization_authz_gamma context-cxoohkpuvva
@@ -99,11 +99,6 @@ tr -s '[[:space:]]' '\n'
 1. helm install --dry-run --debug ./mycharts/ --generate-name --> this is dry run of the charts.shows how `deployment.yml` will be rendered.
 1. helm install example ./mycharts/ --> deploys application to k8s cluster.
 1. helm list --> Show list of installed helm charts.
-
-# Spectra cli
-1. spectra-cli instance delete --instance-name datha1 --stage-name alpha --service-name authz --org-name spectra-authorization --region us-phoenix-1
-1. spectra-cli instance create --filename=/Users/sahithi/Desktop/rc-integration-main-instance.yaml
-1. spectra-cli stage create --filename out/gamma.yaml --verbosity-level 100  --> used in oke and spectra cli image upgrade.
 
 # Association Service
 1. kubectl -n eloj apply -f <filename>.yaml 

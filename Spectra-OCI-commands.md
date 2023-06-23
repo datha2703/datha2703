@@ -10,4 +10,10 @@
 1. Sydney `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.ap-sydney-1.aaaaaaaasl3yqgulnqsz7b2f6ju3mix4536vjfxt2wfzxxan6ct6kzs7t4da --file $HOME/.kube/config --region ap-sydney-1 --token-version 2.0.0 `
 1. Montreal `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.ca-montreal-1.aaaaaaaauo4lp7qk42yz2pidsurg7thunupkeppye3nz6ilgocszzh5labfa --file $HOME/.kube/config --region ca-montreal-1 --token-version 2.0.0 `
 1. Toronto `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.ca-toronto-1.aaaaaaaabomuxntmbn5ohwrw4ymbi24xzedzsgym5v4pxdqrbctvzxcww3na --file $HOME/.kube/config --region ca-toronto-1 --token-version 2.0.0`
-1. 
+
+
+# Spectra cli
+1. spectra-cli instance delete  --instance-name dathav1 --stage-name alpha --service-name authz --org-name spectra-authorization --region us-phoenix-1
+1. spectra-cli instance create --filename=/Users/sahithi/Desktop/rc-integration-main-instance.yaml
+1. spectra-cli stage create --filename out/gamma.yaml --verbosity-level 100  --> used in oke and spectra cli image upgrade.
+1. spectra-cli-windows-amd64-0.2.35.exe  instance get --instance-name dathav1 --stage-name alpha --service-name authz --org-name spectra-authorization --region us-phoenix-1
