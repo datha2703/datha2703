@@ -1,3 +1,7 @@
+1. Clone
+	1. git clone ssh://datha.krishnabhat%40oracle.com@alm.oraclecorp.com/fusionapps_fusionapps-qa_25331/fusionapps-qa.git c:\Code\fusionapps-qa --progress
+	1. git clone --branch v2mib ssh://datha.krishnabhat%40oracle.com@alm.oraclecorp.com/fusionapps_fusionapps-qa_25331/fusionapps-qa.git c:\Code\fusionapps-qa --progress
+
 1. Check out new branch and publish branch
 git checkout -b <branch>
 git push -u origin <branch>

@@ -42,6 +42,7 @@
 1. docker image rm dc349298ea5a --> delete image by id
 1. docker image rm webapplication1:dev --> delete image by referencing REPOSITORY and TAG.
 1. docker rmi --force a5b814602eb1 --> remove by force
+1. docker container ls -a --> List all containers
 1. docker container ls --> List containers
 1. docker image history <repository>:<tag>
 1. docker system events
@@ -49,13 +50,14 @@
    1. docker login docker-master.cdaas.oraclecloud.com
    1. docker push myimage:latest
 1. docker run
-   1. docker run docker run -e my_env_var="my_env_var_value" alpine:3.12
+   1. docker run docker run -e my_env_var="my_env_var_value" alpine:latest
    1. docker run -i -t <REPOSITORY>:<TAG> sh
-   1. docker run -i -t alpine:3.12 sh
-   1. docker run -i -t alpine:3.12 ping google.com
+   1. docker run --entrypoint sh -t -i alpine:latest
+   1. docker run -i -t alpine:latest sh
+   1. docker run -i -t alpine:latest ping google.com
    1. docker run -idt -p 16000:16000 --name fb ubuntu bash
-   1. docker run --publish  8090:8090 alpine:3.12 --> Port forwarding from host to container
-   1. docker run -v /HostPath:/ContainerPath  -it alpine:3.12  sh  --> Run and mount host directory path `/HostPath` as `/ContainerPath`. Any changes made in host directory is available to container directory when container is running.
+   1. docker run --publish  8090:8090 alpine:latest --> Port forwarding from host to container
+   1. docker run -v /HostPath:/ContainerPath  -it alpine:latest  sh  --> Run and mount host directory path `/HostPath` as `/ContainerPath`. Any changes made in host directory is available to container directory when container is running.
 1. Docker Exit Status
   1. docker ps -a  --> shows column for 'status'.
   1. docker ps -a | grep sas-test:latest --> Show only for images with name contains sas-test:latest.
