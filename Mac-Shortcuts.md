@@ -18,6 +18,8 @@
   - Command + K + C
   - Command + K + U
 
+- Go to directory when attaching or selecting by CMD+Shift+G
+
 - Copy + V
   - Move folder/file
     - Command + C

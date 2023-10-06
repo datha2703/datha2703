@@ -31,7 +31,9 @@
 1. `kubectl apply -f .\DI.AppCenter.LogProcessor.Api.ConfigMap.yml` creates config map from file. Config map also created from env type of file and from command line.
 
 # Useful kubectl Commands
-1. Set-Alias -Name k -Value kubectl
+1. Setting alias for Kubectl
+  1. Set-Alias -Name k -Value kubectl - Windows Powershell
+  1. alias k='kubectl' - Mac ZShell
 1. kubectl version
 1. kubectl cluster-info
 1. kubectl get all
