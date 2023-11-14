@@ -17,3 +17,4 @@
 
 # K8s Cluster Access
 1. `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaal7naqd4lkyjxfjjfotx5ij5qbjkrrvkmk6t3ro34gcxoohkpuvva --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0 `
+1. `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaaafaoeblla2eegicngiwofeqwzof4v7hazzngorr2bclxtwe5tvwq --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0 ` - Alpha
