@@ -7,12 +7,12 @@
 1. ExternalName - sets up alias for external service. This acts as proxy for external service.
 1. kubectl get ing --> view ingress services.
 1. Port forwarding
- 1. kubectl port-forward di-appcenter-logprocessor-api 8090:80
- 1. kubectl port-forward deployment/di-appcenter-logprocessor-api 8090:80
- 1. kubectl port-forward service/di-appcenter-logprocessor-api 8090:80
+ 1. kubectl port-forward my-api 8090:80
+ 1. kubectl port-forward deployment/my-api 8090:80
+ 1. kubectl port-forward service/my-api 8090:80
 1. Cluster IP Services
   1. kubectl apply -f .\DI.AppCenter.LogProcessor.Api.ClusterIpService.yml  --dry-run=client --validate=true --> Only validates and dry run
-  1. kubectl apply -f .\DI.AppCenter.LogProcessor.Api.ClusterIpService.yml --> Now `k exec di-appcenter-logprocessor-api-6fb5594f8b-2h5w6 -- curl http://di-appcenter-logprocessor-api-cluster-ip:8090/WeatherForecast` will get results from service.
+  1. kubectl apply -f .\DI.AppCenter.LogProcessor.Api.ClusterIpService.yml --> Now `k exec my-api-6fb5594f8b-2h5w6 -- curl http://my-api-cluster-ip:8090/WeatherForecast` will get results from service.
 1. NodePort Services
   1. kubectl apply -f .\DI.AppCenter.LogProcessor.Api.NodePort.yml
   1. Open browser and type http://localhost:31000/WeatherForecast
@@ -29,6 +29,7 @@
  1. Provide on command line
  1. ConfigMap manifest as yaml, loaded as env variable or ConfigMap volume.
 1. `kubectl apply -f .\DI.AppCenter.LogProcessor.Api.ConfigMap.yml` creates config map from file. Config map also created from env type of file and from command line.
+1. View config map `kubectl describe configmaps spectra-jaeger-agent-config -n spectra-platform`
 
 # Useful kubectl Commands
 1. Setting alias for Kubectl
@@ -42,7 +43,7 @@
 1. kubectl run [container-name] --image=[image-name]
 1. kubectl expose ...
 1. kubectl create -f create-namespace.yml
-1. k exec di-appcenter-logprocessor-api -it sh --> To get bash shell
+1. k exec my-api -it sh --> To get bash shell
 1. kubectl -c management exec --stdin --tty authz-management-5984849cf5-2rnt4 -- sh --> Gets shell of pod called `authz-management-5984849cf5-2rnt4`.
 1. `kubectl -c management exec --stdin --tty authz-management-84b7fb6456-vgjjv -- printenv` - print all environment vars for specified pod
 1. kubectl logs [container-name]
@@ -51,14 +52,14 @@
 # kubectl pods
 1. kubectl get pods -->List all pods
 1. kubectl get pods  -l app.kubernetes.io/instance=authz-management
-1. k describe pod di-appcenter-logprocessor-api
-1. kubectl run di-appcenter-logprocessor-api --image=repo:label  --> this will create pod called 'di-appcenter-logprocessor-api' using container image 'repo:label'
-1. kubectl port-forward di-appcenter-logprocessor-api 8090:80 --> where 8090 is external port and 80 is internal port. http://localhost:8090/WeatherForecast
-1. kubectl delete pod di-appcenter-logprocessor-api
+1. k describe pod my-api
+1. kubectl run my-api --image=repo:label  --> this will create pod called 'my-api' using container image 'repo:label'
+1. kubectl port-forward my-api 8090:80 --> where 8090 is external port and 80 is internal port. http://localhost:8090/WeatherForecast
+1. kubectl delete pod my-api
 1. Pods have their own IP address
 1. kubectl port-forward [pod] [ports]
-1. kubectl port-forward pods\di-appcenter-logprocessor-api 8090:80 --> where 8090 is external port and 80 is internal port. http://localhost:8090/WeatherForecast
-1. kubectl port-forward pod/di-appcenter-logprocessor-api-6fb5594f8b-5x442 8090:80 --> Magic number at the end of the pod name comes when replicas are setup.
+1. kubectl port-forward pods\my-api 8090:80 --> where 8090 is external port and 80 is internal port. http://localhost:8090/WeatherForecast
+1. kubectl port-forward pod/my-api-6fb5594f8b-5x442 8090:80 --> Magic number at the end of the pod name comes when replicas are setup.
 1. kubectl create -f .\DI.AppCenter.LogProcessor.Api.Pod.yml --dry-run=client --validate=true  --> Only validates and dry run
 1. kubectl apply -f .\DI.AppCenter.LogProcessor.Api.Pod.yml --> Creates pod
 1. kubectl apply -f .\DI.AppCenter.LogProcessor.Api.Pod.yml --save-config --> Creates annotation, applies specific delta changes in yml
@@ -74,12 +75,12 @@ tr -s '[[:space:]]' '\n'
 1. kubectl create -f .\DI.AppCenter.LogProcessor.Api.Deploy.yml  --dry-run=client --validate=true  --> Only validates and dry run
 1. kubectl get deployments
 1. kubectl get deployments --show-labels
-1. kubectl get deployments -l app=di-appcenter-logprocessor-api-app
+1. kubectl get deployments -l app=my-api-app
 1. kubectl scale deployments authz-decision --replicas=1
 1. kubectl scale deployments -f .\DI.AppCenter.LogProcessor.Api.Deploy.yml --replicas=2
 1. kubectl scale deployments -f  --replicas=2
-1. k describe deployment di-appcenter-logprocessor-api
-1. kubectl port-forward deployment/di-appcenter-logprocessor-api 8090:80
+1. k describe deployment my-api
+1. kubectl port-forward deployment/my-api 8090:80
 1. k get deployment
 1. k get deployments --show-labels
 1. k scale -f DI.AppCenter.LogProcessor.Api.Deploy.yml --replicas=2
@@ -93,6 +94,7 @@ tr -s '[[:space:]]' '\n'
 1. policyservicedev (root)/spectra/sps_alpha context-csyksvfyjva
 1. kubectl get ns
 1. kubectl describe namespace dathav1
+1. kubectl config get-contexts --> list all contexts
 1. kubectl config set-context --current --namespace=dathav1
 1. kubectl delete ns datha
 

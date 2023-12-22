@@ -16,5 +16,10 @@
 1. Node rotation - `docker run -v ~/:/root -v ~/:${HOME} docker-master.cdaas.oraclecloud.com/docker-spectra-platform/oke-node-rotation -f -c <YOUR_CLUSTER_CONTEXT> -t <YOUR_KUBE_CONFIG_FILE> -n 2`
 
 # K8s Cluster Access
-1. `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaal7naqd4lkyjxfjjfotx5ij5qbjkrrvkmk6t3ro34gcxoohkpuvva --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0 `
+1. `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaal7naqd4lkyjxfjjfotx5ij5qbjkrrvkmk6t3ro34gcxoohkpuvva --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0 ` - Gamma
 1. `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaaafaoeblla2eegicngiwofeqwzof4v7hazzngorr2bclxtwe5tvwq --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0 ` - Alpha
+1. `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaal7jqrhnjuold72i5j662gmeketyragk4us7aqqjbqcsazdsjrzia --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0 ` - Beta
+kubectl rollout restart daemonset spectra-jaeger-agent-ds -n spectra-platform
+1. `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.aaaaaaaakyyvsvbzzgdfdbrduj5e6ny5ocqk66kga63bywmatc2qblv7ph3a --file $HOME/.kube/config --region us-ashburn-1 --token-version 2.0.0 ` - Prod Ashburn
+1. `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaaump35udtrgjobnq4ewimtnogscxx7b26v6gp24yeqcd67eymuq2q --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0 ` - Prod Phx
+1. `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.ca-montreal-1.aaaaaaaauo4lp7qk42yz2pidsurg7thunupkeppye3nz6ilgocszzh5labfa --file $HOME/.kube/config --region ca-montreal-1 --token-version 2.0.0 ` - Montreal

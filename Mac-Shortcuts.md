@@ -68,5 +68,8 @@
 - Sublime text
   - Open package control by command shift p.
   - SQL beautifier by "command+k", "command+f"
+  - Case
+    To convert to upper case: In quick succession, hit Cmd–K then Cmd–U (Mac) or Ctrl–K then Ctrl–U (Windows). 
+    To convert to lower case: In quick succession, hit Cmd–K then Cmd–L (Mac) or Ctrl–K then Ctrl–L (Windows).
 
 
