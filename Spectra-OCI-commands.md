@@ -14,6 +14,15 @@
 1. spectra-cli instance rm -g spectra-authorization --service-name authz --instance-name dathav1 --stage-name alpha -region us-phoenix-1
 1. spectra-cli list instance 
 1. Node rotation - `docker run -v ~/:/root -v ~/:${HOME} docker-master.cdaas.oraclecloud.com/docker-spectra-platform/oke-node-rotation -f -c <YOUR_CLUSTER_CONTEXT> -t <YOUR_KUBE_CONFIG_FILE> -n 2`
+1. Deleting name space stuck in terminating
+```
+(       
+NAMESPACE=mahith
+kubectl proxy &
+kubectl get namespace $NAMESPACE -o json |jq '.spec = {"finalizers":[]}' >temp.json
+curl -k -H "Content-Type: application/json" -X PUT --data-binary @temp.json 127.0.0.1:8001/api/v1/namespaces/$NAMESPACE/finalize
+)
+```
 
 # K8s Cluster Access
 1. `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaal7naqd4lkyjxfjjfotx5ij5qbjkrrvkmk6t3ro34gcxoohkpuvva --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0 ` - Gamma
@@ -23,3 +32,4 @@ kubectl rollout restart daemonset spectra-jaeger-agent-ds -n spectra-platform
 1. `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.aaaaaaaakyyvsvbzzgdfdbrduj5e6ny5ocqk66kga63bywmatc2qblv7ph3a --file $HOME/.kube/config --region us-ashburn-1 --token-version 2.0.0 ` - Prod Ashburn
 1. `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaaump35udtrgjobnq4ewimtnogscxx7b26v6gp24yeqcd67eymuq2q --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0 ` - Prod Phx
 1. `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.ca-montreal-1.aaaaaaaauo4lp7qk42yz2pidsurg7thunupkeppye3nz6ilgocszzh5labfa --file $HOME/.kube/config --region ca-montreal-1 --token-version 2.0.0 ` - Montreal
+1. `oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.eu-frankfurt-1.aaaaaaaac4gedm4jcod2gf3dyorufy6b5ep5mzuu5fhtr7zfrcobfv74iiba --file $HOME/.kube/config --region eu-frankfurt-1 --token-version 2.0.0` -- Frankfurt Prod

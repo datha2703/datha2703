@@ -30,6 +30,10 @@
  1. ConfigMap manifest as yaml, loaded as env variable or ConfigMap volume.
 1. `kubectl apply -f .\my-api.ConfigMap.yml` creates config map from file. Config map also created from env type of file and from command line.
 1. View config map `kubectl describe configmaps spectra-jaeger-agent-config -n spectra-platform`
+1. Secrets
+  1. kubectl get secrets -n wxkp
+  1. kubectl get secrets -n eloj
+  1. kubectl get secrets falcm-lcm-fusion-db-tls -n wxkp -o json
 
 # Useful kubectl Commands
 1. Setting alias for Kubectl
@@ -46,8 +50,10 @@
 1. k exec my-api -it sh --> To get bash shell
 1. kubectl -c management exec --stdin --tty authz-management-5984849cf5-2rnt4 -- sh --> Gets shell of pod called `authz-management-5984849cf5-2rnt4`.
 1. `kubectl -c management exec --stdin --tty authz-management-84b7fb6456-vgjjv -- printenv` - print all environment vars for specified pod
+1. `kubectl  -n  cptaaxcqy  -c fetchtoken exec --stdin --tty authz-fetchtoken-569f495b66-gnm8v -- printenv` - print all environment vars for specified pod
 1. kubectl logs [container-name]
 1. kubectl logs [pod-name] -c [container-name]
+1. `kubectl get pods POD_NAME_HERE -o jsonpath='{.spec.containers[*].name}'` - get container in pod
 
 # kubectl pods
 1. kubectl get pods -->List all pods
@@ -76,7 +82,8 @@ tr -s '[[:space:]]' '\n'
 1. kubectl get deployments
 1. kubectl get deployments --show-labels
 1. kubectl get deployments -l app=my-api-app
-1. kubectl scale deployments authz-decision --replicas=1
+1. kubectl scale deployments -n dathav1 --replicas=0 authz-job authz-decision  authz-management authz-spectrahealthcheckms authz-fetchtoken
+1. kubectl scale deployments -n dathav1 --replicas=1 authz-job authz-decision  authz-management
 1. kubectl scale deployments -f .\my-api.Deploy.yml --replicas=2
 1. kubectl scale deployments -f  --replicas=2
 1. k describe deployment my-api
@@ -97,6 +104,15 @@ tr -s '[[:space:]]' '\n'
 1. kubectl config get-contexts --> list all contexts
 1. kubectl config set-context --current --namespace=dathav1
 1. kubectl delete ns datha
+1. Deleting name space stuck in terminating
+```
+(       
+NAMESPACE=mahith
+kubectl proxy &
+kubectl get namespace $NAMESPACE -o json |jq '.spec = {"finalizers":[]}' >temp.json
+curl -k -H "Content-Type: application/json" -X PUT --data-binary @temp.json 127.0.0.1:8001/api/v1/namespaces/$NAMESPACE/finalize
+)
+```
 
 # Helm Charts
 1. helm lint ./mycharts/ --> where `mycharts` is location of my charts directory. Checks for lint errors and syntax.
@@ -109,7 +125,12 @@ tr -s '[[:space:]]' '\n'
 1. kubectl -n eloj get associations
 1. kubectl -n eloj edit associations spectraauthz-associations
   Increase version number 'version: "100"' to reapply associations
-1. kubectl get secrets -n eloj
 1. kubectl get crd 
 1. kubectl get crd associations.oracle.fa.secassoc
 1. kubectl describe crd associations.oracle.fa.secassoc
+
+Promethus
+1. k port-forward prometheus-apps-0 -n octo-system 9090:9090 --> this will open up http://localhost:9090/graph in browser
+1. up{namespace=~ 'wzgj |xaoh'}
+1. k get pods -n octo-system
+1. 

@@ -64,6 +64,7 @@
     - User/Pass aime/2cool
   - /scratch/aime1/adestore/views/aime1_phxfafaf41/oracle/work/RunFaBATS
   - grep -nr 'yourString*' .
+  - scp id_rsa datkrish@phoenix327666.appsdev.fusionappsdphx1.oraclevcn.com:/home/datkrish/.ssh
 
 - Sublime text
   - Open package control by command shift p.

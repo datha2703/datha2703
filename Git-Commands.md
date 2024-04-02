@@ -29,3 +29,15 @@ git reset --hard origin/trunk
 1. Cleaning or Removing untracked files
 View untracked files - git clean -n
 git clean -fdx
+
+1. Check out with commit id
+git checkout -b <new_branch_name> <SHA1>
+
+1. git move
+git mv sample-data/APMTest/SASTestImplicitGrant1 sample-data/APMTest/SASTestImplicitGrant
+
+1. Stash
+git stash push -m my-stash
+git stash -->  saves uncommitted changes to stash
+git stash list --> list of stashes
+git stash pop stash@{0} --> where 'stash@{0}' is name that git gave to my-stash
